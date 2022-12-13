@@ -5,35 +5,35 @@ import { renameMovie } from "../../store";
 import classes from "./Search.module.css";
 
 const SearchBox = () => {
-    const [value, setValue] = useState("");
+    const [input, setInput] = useState("");
 
-    const inputId = useId();
+    const iId = useId();
     const dispath = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
-        dispath(renameMovie(value));
+        dispath(renameMovie(input));
     };
 
-    const inputChangeHandler = (e) => {
-        setValue(e.target.value);
+    const inputHandler = (e) => {
+        setInput(e.target.value);
     };
 
     return (
         <div>
             <form onSubmit={submitHandler}>
-                <label htmlFor={inputId}>Search Movie:</label>
+                <label htmlFor={iId}>Search Movie:</label>
                 <br />
                 <div className={classes.inputContainer}>
                     <input
                         type="text"
-                        id={inputId}
-                        value={value}
-                        onChange={inputChangeHandler}
+                        id={iId}
+                        value={input}
+                        onChange={inputHandler}
                         placeholder="Movie Name"
                         className={classes.input}
                     />
-                    <button disabled={!value} className={classes.button}>
+                    <button disabled={!input} className={classes.button}>
                         Search
                     </button>
                 </div>

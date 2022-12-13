@@ -6,13 +6,13 @@ import { memo, useEffect, useState } from "react";
 
 const List = () => {
     const [data, setData] = useState([]);
-    const name = useSelector((state) => state.movieSlice.movieName);
+    const movieName = useSelector((state) => state.movieSlice.movieName);
 
     useEffect(() => {
-        fetch(`https://www.omdbapi.com/?s=${name}&apikey=1cf8eb23`)
+        fetch(`https://www.omdbapi.com/?s=${movieName}&apikey=1cf8eb23`)
             .then((res) => res.json())
             .then((data) => setData(data.Search ?? []));
-    }, [name]);
+    }, [movieName]);
 
     return (
         <ul className={classes.ul}>

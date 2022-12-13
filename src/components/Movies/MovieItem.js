@@ -7,7 +7,7 @@ import classes from "./MovieItem.module.css";
 const MovieListItem = ({ id, img, name }) => {
     const dispatch = useDispatch();
 
-    const buttonClickHandler = (name, id) => {
+    const clickHandler = (name, id) => {
         const movie = { name, id };
         dispatch(addStore(movie));
     };
@@ -20,7 +20,7 @@ const MovieListItem = ({ id, img, name }) => {
                 <h2 className={classes.name}>{name}</h2>
                 <div>
                     <Button
-                        onClick={() => buttonClickHandler(name, id)}
+                        onClick={() => clickHandler(name, id)}
                     >
                         Add To Collection
                     </Button>

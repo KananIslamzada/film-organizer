@@ -7,7 +7,6 @@ import classes from "./CollectionItem.module.css";
 const CollectionListItem = ({ name, id }) => {
     const dispatch = useDispatch();
     const clickHandler = () => {
-        console.log(id);
         dispatch(deleteMovie(id));
     };
     return (

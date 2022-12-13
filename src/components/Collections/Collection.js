@@ -20,13 +20,11 @@ const Collection = () => {
     const cId = useRef(uuid());
     const formHandler = (e) => {
         e.preventDefault();
-
         const data = {
             id: cId.current,
             collectionName: input,
             movieList: list
         };
-
         setInput("");
         dispatch(addCollection(data));
         dispatch(clear());
